@@ -1,0 +1,41 @@
+header{
+background-color:#f2f2f2;
+
+
+}
+header nav{
+  color: white;
+  text-align:center;
+  padding:25px 0;
+}
+nav a {
+  display: inline-block;
+  text-decoration: none;
+ margin: 0 30px;
+ padding: 5px 15px;
+ border-radius: 50%;
+}
+nav a:hover{
+  background-color: black;
+  color: #fff;
+}
+
+
+
+.encabezado-img{
+  background-image:url(imagenes/espacio2.jpg) ;
+  height: 500px;
+  background-position:center;
+  background-repeat: no-repeat ;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items:center;
+  color: #fff;
+  
+
+}
+.encabezado-img p {
+  font-size: 20px;
+}
