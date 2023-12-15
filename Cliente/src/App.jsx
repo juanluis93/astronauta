@@ -1,4 +1,4 @@
-//import { useEffect, useState } from 'react'
+import { useState, useEffect } from 'react';
 import './App.css'
 import '@fortawesome/fontawesome-free/css/brands.css';
 import Neil from './imagenes/Neil.jpg';
@@ -10,7 +10,10 @@ import Lora from './imagenes/Lora.jpg'
 
 import 'swiper/swiper-bundle.css';
 function App() {
-
+  const [data, setData] = useState(null);
+  useEffect(() => {
+    fetch("")
+  }, []);
   return (
     <>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/css/brands.min.css" />

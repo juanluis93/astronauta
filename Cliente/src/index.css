@@ -40,7 +40,7 @@ body {
 }
 .Cont3{ 
   width: 30%;
-  padding: 50px 50px 50px 40px;
+  padding: 50px 50px 50px 10px;
 }
 .Cont4{ 
   width: 30%;
@@ -55,7 +55,8 @@ body {
 .swiper_mySwiper{ 
 width: 30%;
 height: 30%;
-padding: 50px 0px 53px 0px;
+padding: 50px 0px 53px 15px;
+
 }
 .swiper-slide{
   display:flex;
@@ -65,7 +66,7 @@ padding: 50px 0px 53px 0px;
   box-shadow:  0 0 20px rgb(0, 0, 0,0.4);
   padding: 0px;
   text-align: left;
-
+  border-radius: 10%;
 }
 
 
@@ -155,7 +156,8 @@ padding: 50px 0px 53px 0px;
 
 .btn-1{
   display: inline-block;
-  padding:  13px 55px;
+  padding:  10px 55px;
+  margin: 10px;
   border:1px solid #090635;
   border-radius: 25px;
 
