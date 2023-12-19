@@ -12,7 +12,14 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<Nasacontext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("NasaConnection")));
-
+builder.Services.AddCors(options => {
+    options.AddPolicy("NuevaPolitica", app =>
+    {
+        app.AllowAnyOrigin()
+        .AllowAnyHeader()
+        .AllowAnyMethod();
+    });
+});
 var app = builder.Build();
 /*
 using (var scope = app.Services.CreateScope())
@@ -29,7 +36,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
+app.UseCors("NuevaPolitica");
 app.UseAuthorization();
 
 app.MapControllers();

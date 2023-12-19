@@ -14,6 +14,7 @@ namespace api.Controllers
             _context = context;
         }
         [HttpGet]
-        public IEnumerable<astronautas> Get() => _context.Astronauta.ToList();  
+        public IEnumerable<astronautas> Get() => _context.Astronauta.ToList();
+     
     }
 }

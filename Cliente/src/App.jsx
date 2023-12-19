@@ -12,8 +12,11 @@ import 'swiper/swiper-bundle.css';
 function App() {
   const [data, setData] = useState(null);
   useEffect(() => {
-    fetch("")
+    fetch("https://localhost:7255/api/astronautas")
+      .then((Response) => Response.json())
+      .then((data) => setData(data));
   }, []);
+
   return (
     <>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/css/brands.min.css" />
@@ -48,10 +51,9 @@ function App() {
                 <div className='product-txt'>
                   <span></span>
                   <h3> nail</h3>
-                  <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et labore rerum nihil impedit illo voluptatum,
-                    perferendis pariatur provident ex, qui officia tempore deleniti. Excepturi, ex iusto dignissimos molestiae itaque dolores.
-                  </p>
+
+                  {data?.map((astronautas) => (<p key={astronautas.id_n}> {astronautas.descripcion}</p>))}
+
                 </div>
                 <div className='product-img'>
                   <img src={Neil} alt="" />
@@ -72,10 +74,11 @@ function App() {
                 <div className='product-txt'>
                   <span></span>
                   <h3> Jasmin Moghbeli</h3>
-                  <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et labore rerum nihil impedit illo voluptatum,
-                    perferendis pariatur provident ex, qui officia tempore deleniti. Excepturi, ex iusto dignissimos molestiae itaque dolores.
-                  </p>
+
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Distinctio nam fugit voluptates accusamus rerum ipsam, quae ratione impedit provident eum in adipisci nostrum odit nesciunt autem sit, tempore similique ducimus.
+
+
                 </div>
                 <div className='product-img1'>
                   <img src={Jasmin} alt="" />
@@ -177,7 +180,7 @@ function App() {
             </div>
           </div>
         </div>
-      </div>
+      </div >
 
       <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
