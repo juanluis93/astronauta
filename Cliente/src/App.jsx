@@ -1,15 +1,16 @@
 import { useState, useEffect } from 'react';
 import './App.css'
 import '@fortawesome/fontawesome-free/css/brands.css';
-import Neil from './imagenes/Neil.jpg';
 import './index.css'
-import Jasmin from './imagenes/Jasmin.jpg'
-import Lora from './imagenes/Lora.jpg'
+import dumb from './imagenes/dumb.jpg'
+import Modal from './Java/modal.jsx';
 
 //import React, { useEffect } from 'react';
 
 import 'swiper/swiper-bundle.css';
+
 function App() {
+  const [openModal, setOpenmModal] = useState(false)
   const [data, setData] = useState(null);
   useEffect(() => {
     fetch("https://localhost:7255/api/astronautas")
@@ -19,8 +20,7 @@ function App() {
 
   return (
     <>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/css/brands.min.css" />
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
 
       <header>
         <nav>
@@ -44,144 +44,33 @@ function App() {
         </div>
         <div className="swiper_mySwiper">
           <div className="swiper-wrapper">
-
-            <div className="swiper-slide">
-
-              <div className='product-content'>
-                <div className='product-txt'>
-                  <span></span>
-                  <h3> nail</h3>
-
-                  {data?.map((astronautas) => (<p key={astronautas.id_n}> {astronautas.descripcion}</p>))}
-
+            {data?.map((astronauta) => (
+              <div className="swiper-slide" key={astronauta.id_n}>
+                <div className='product-content'>
+                  <div className='product-txt'>
+                    <span></span>
+                    <h3>{astronauta.nombre}</h3>
+                    <p>{astronauta.descripcion}</p>
+                  </div>
+                  <div className='product-img'>
+                    <img src={dumb} alt="" />
+                  </div>
                 </div>
-                <div className='product-img'>
-                  <img src={Neil} alt="" />
-                </div>
-              </div>
-              <a href='#' className='btn-1'> Mas</a>
-            </div>
-
-          </div>
-        </div>
-
-        <div className="Cont1">
-          <div className="swiper-wrapper">
-
-            <div className="swiper-slide">
-
-              <div className='product-content'>
-                <div className='product-txt'>
-                  <span></span>
-                  <h3> Jasmin Moghbeli</h3>
-
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Distinctio nam fugit voluptates accusamus rerum ipsam, quae ratione impedit provident eum in adipisci nostrum odit nesciunt autem sit, tempore similique ducimus.
-
-
-                </div>
-                <div className='product-img1'>
-                  <img src={Jasmin} alt="" />
-                </div>
-              </div>
-              <a href='#' className='btn-1'> Mas</a>
-            </div>
-
-          </div>
-        </div>
-
-        <div className="Cont2">
-          <div className="swiper-wrapper">
-
-            <div className="swiper-slide">
-
-              <div className='product-content'>
-                <div className='product-txt'>
-                  <span></span>
-                  <h3> loral Ohara</h3>
+                <button className='btn-1' onClick={() => setOpenmModal(!openModal)}> Mas</button>
+                <Modal isOpen={openModal} onClose={() => setOpenmModal(false)}>
                   <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et labore rerum nihil impedit illo voluptatum,
-                    perferendis pariatur provident ex, qui officia tempore deleniti. Excepturi, ex iusto dignissimos molestiae itaque dolores.
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam,
+                    itaque, alias autem dolore laudantium distinctio minima doloribus modi natus ab recusandae, sit iure temporibus suscipit similique? Velit maxime quas incidunt?
                   </p>
-                </div>
-                <div className='product-img2'>
-                  <img src={Lora} alt="" />
-                </div>
+                </Modal>
+
               </div>
-              <a href='#' className='btn-1'> Mas</a>
-            </div>
+            ))}
           </div>
         </div>
 
-        <div className="Cont3">
-          <div className="swiper-wrapper">
 
-            <div className="swiper-slide">
-
-              <div className='product-content'>
-                <div className='product-txt'>
-                  <span></span>
-                  <h3> nail</h3>
-                  <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et labore rerum nihil impedit illo voluptatum,
-                    perferendis pariatur provident ex, qui officia tempore deleniti. Excepturi, ex iusto dignissimos molestiae itaque dolores.
-                  </p>
-                </div>
-                <div className='product-img3'>
-                  <img src={Neil} alt="" />
-                </div>
-              </div>
-              <a href='#' className='btn-1'> Mas</a>
-            </div>
-          </div>
-        </div>
-        <div className="Cont4">
-          <div className="swiper-wrapper">
-
-            <div className="swiper-slide">
-
-              <div className='product-content'>
-                <div className='product-txt'>
-                  <span></span>
-                  <h3> nail</h3>
-                  <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et labore rerum nihil impedit illo voluptatum,
-                    perferendis pariatur provident ex, qui officia tempore deleniti. Excepturi, ex iusto dignissimos molestiae itaque dolores.
-                  </p>
-                </div>
-                <div className='product-img4'>
-                  <img src={Neil} alt="" />
-                </div>
-              </div>
-              <a href='#' className='btn-1'> Mas</a>
-            </div>
-
-          </div>
-        </div>
-        <div className="Cont5">
-          <div className="swiper-wrapper">
-
-            <div className="swiper-slide">
-
-              <div className='product-content'>
-                <div className='product-txt'>
-                  <span></span>
-                  <h3> nail</h3>
-                  <p>
-                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et labore rerum nihil impedit illo voluptatum,
-                    perferendis pariatur provident ex, qui officia tempore deleniti. Excepturi, ex iusto dignissimos molestiae itaque dolores.
-                  </p>
-                </div>
-                <div className='product-img5'>
-                  <img src={Neil} alt="" />
-                </div>
-              </div>
-              <a href='#' className='btn-1'> Mas</a>
-            </div>
-          </div>
-        </div>
-      </div >
-
+      </div>
       <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
     </>
