@@ -18,6 +18,7 @@ namespace DB
         public string?  nombre { get; set; }
         public string? nacionalidad { get; set; }
         public string? descripcion { get; set; }
+        [DataType(DataType.Date)]
         public DateTime? fecha_nacimiento { get; set; }
         public int? edad { get; set; }
 

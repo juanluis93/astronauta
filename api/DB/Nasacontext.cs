@@ -6,7 +6,7 @@ namespace DB
     {
         public Nasacontext(DbContextOptions<Nasacontext> options) : base(options)
         {
-
+            
         }
         public DbSet<astronautas> Astronauta { get; set; }
         public DbSet<Misiones> misiones { get; set; }

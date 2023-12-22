@@ -21,18 +21,32 @@ namespace api.Controllers
         [Route("Guardar")]
         public dynamic Guardar(astronautas astronautas)
         {
-            astronautas.id_n = astronautas.id_n;
-            return new
+            try
             {
-                Nombre = astronautas.nombre,
-                Nacionalidad = astronautas.nacionalidad,
-                Descripcion = astronautas.descripcion,
-                Fecha = astronautas.fecha_nacimiento,
-                Edad = astronautas.edad,
-                Redes = astronautas.redes_sociales,
-                Estado = astronautas.Estado
+                _context.Astronauta.Add(astronautas);
+                _context.SaveChanges();
 
-            };
+                // Devolver los datos guardados si es necesario
+                return new
+                {
+                    Id = astronautas.id_n, // O cualquier otro identificador único que utilices
+                    Nombre = astronautas.nombre,
+                    Nacionalidad = astronautas.nacionalidad,
+                    Descripcion = astronautas.descripcion,
+                    Fecha = astronautas.fecha_nacimiento,
+                    Edad = astronautas.edad,
+                    Redes = astronautas.redes_sociales,
+                    Estado = astronautas.Estado
+                };
+            }
+            catch (Exception ex)
+            {
+                // Manejar errores, loggear, etc.
+                Console.WriteLine($"Error al intentar guardar en la base de datos: {ex.Message}");
+                return null; // Otra forma de manejar el error según tus necesidades
+            }
         }
+
     }
 }
+
