@@ -78,19 +78,3 @@ body{
   color: #fff;
 }
 
-/*@keyframes hoverAnimation {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.1);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
-.swiper-slide:hover {
-  animation: hoverAnimation 2s;
-  border: 2px solid var(--secondary);
-}*/
