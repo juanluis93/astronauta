@@ -3,8 +3,7 @@ import './App.css';
 import '@fortawesome/fontawesome-free/css/brands.css';
 import './index.css';
 import dumb from './imagenes/dumb.jpg';
-import Modal from './Java/modal.jsx';
-
+import Modal from './Recurso/modal.jsx';
 import 'swiper/swiper-bundle.css';
 
 function App() {
@@ -22,9 +21,31 @@ function App() {
       .then((data) => setData(data));
   }, []);
 
-  // Estado para gestionar la visibilidad del modal para cada astronauta
+
   const [openModals, setOpenModals] = useState({});
 
+
+  const [filterNacionalidad, setFilterNacionalidad] = useState(null);
+  const [filterEstado, setFilterEstado] = useState(null);
+
+
+  const handleNacionalidadChange = (event) => {
+    setFilterNacionalidad(event.target.value);
+  };
+
+  const handleEstadoChange = (event) => {
+    setFilterEstado(event.target.value);
+  };
+
+
+  const filteredData = data?.filter((astronauta) => {
+    const nacionalidadMatch = !filterNacionalidad || astronauta.nacionalidad.toLowerCase().includes(filterNacionalidad.toLowerCase());
+    const estadoMatch = !filterEstado || astronauta.estado.toLowerCase().includes(filterEstado.toLowerCase());
+
+    return nacionalidadMatch && estadoMatch;
+  });
+
+  // Función para mostrar/ocultar el modal de cada astronauta
   const toggleModal = (astronautaId) => {
     setOpenModals((prevModals) => ({
       ...prevModals,
@@ -55,32 +76,41 @@ function App() {
         </div>
         <div className="swiper_mySwiper">
           <div className="swiper-wrapper">
-            {data?.map((astronauta) => (
+            {filteredData?.map((astronauta) => (
               <div className="swiper-slide" key={astronauta.id_n}>
                 <div className='product-content'>
                   <div className='product-txt'>
                     <span></span>
                     <h3>{astronauta.nombre}</h3>
-
+                    <div className='product-img'>
+                      <img src={dumb} alt="" />
+                    </div>
                     <p>{astronauta.descripcion}</p>
-
-                  </div>
-                  <div className='product-img'>
-                    <img src={dumb} alt="" />
-
                   </div>
                   <ul>
                     <li>
-                      <h6> Nacionalidad: {astronauta.nacionalidad}</h6>
+                      <h6>Nacionalidad: {astronauta.nacionalidad}</h6>
                     </li>
-                    <li> <h6> Fecha de nacimiento :{astronauta.fecha_nacimiento}</h6> </li>
-                    <li> <h6> Edad: {astronauta.edad}</h6> </li>
-                    <li><h6> Redes sociales: {astronauta.redes_sociales}</h6> </li>
-                    <li> <h6> Estado: {astronauta.estado}</h6> </li>
-
+                    <li>
+                      <h6>Fecha de nacimiento: {astronauta.fecha_nacimiento}</h6>
+                    </li>
+                    <li>
+                      <h6>Edad: {astronauta.edad}</h6>
+                    </li>
+                    <li>
+                      <h6>Redes sociales: {astronauta.redes_sociales}</h6>
+                    </li>
+                    <li>
+                      <h6>Estado: {astronauta.estado}</h6>
+                    </li>
                   </ul>
+
+
                 </div>
-                <button className='btn-1' onClick={() => toggleModal(astronauta.id_n)}> Mas</button>
+                <button className='btn-1' onClick={() => toggleModal(astronauta.id_n)}>
+                  Más
+                </button>
+
 
                 <Modal isOpen={openModals[astronauta.id_n]} onClose={() => toggleModal(astronauta.id_n)}>
                   {date ? (
@@ -90,7 +120,7 @@ function App() {
                         .map((Misiones) => (
                           <p key={Misiones.id_misiones}>
                             <strong>Nombre:</strong> {Misiones.nombre} | <strong>Objetivo:</strong> {Misiones.objetivo}
-                            <br></br>
+                            <br />
                             <hr />
                             <strong>Fecha de iniciada:</strong> {Misiones.fecha_iniciada}
                             <br />
@@ -106,6 +136,18 @@ function App() {
             ))}
           </div>
         </div>
+
+      </div>
+      <hr />
+      <div className="filters">
+        <label>
+          Nacionalidad:
+          <input type="text" value={filterNacionalidad || ''} onChange={handleNacionalidadChange} />
+        </label>
+        <label>
+          Estado:
+          <input type="text" value={filterEstado || ''} onChange={handleEstadoChange} />
+        </label>
       </div>
       <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     </>
