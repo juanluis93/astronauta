@@ -1,0 +1,9 @@
+C:\Users\Juanjo\Desktop\cru2.0\proyyecto final\proyyecto final\bin\Debug\proyyecto final.exe.config
+C:\Users\Juanjo\Desktop\cru2.0\proyyecto final\proyyecto final\bin\Debug\proyyecto final.exe
+C:\Users\Juanjo\Desktop\cru2.0\proyyecto final\proyyecto final\bin\Debug\proyyecto final.pdb
+C:\Users\Juanjo\Desktop\cru2.0\proyyecto final\proyyecto final\obj\Debug\Capa de Presentacion.csproj.AssemblyReference.cache
+C:\Users\Juanjo\Desktop\cru2.0\proyyecto final\proyyecto final\obj\Debug\proyyecto_final.Properties.Resources.resources
+C:\Users\Juanjo\Desktop\cru2.0\proyyecto final\proyyecto final\obj\Debug\Capa de Presentacion.csproj.GenerateResource.cache
+C:\Users\Juanjo\Desktop\cru2.0\proyyecto final\proyyecto final\obj\Debug\Capa de Presentacion.csproj.CoreCompileInputs.cache
+C:\Users\Juanjo\Desktop\cru2.0\proyyecto final\proyyecto final\obj\Debug\proyyecto final.exe
+C:\Users\Juanjo\Desktop\cru2.0\proyyecto final\proyyecto final\obj\Debug\proyyecto final.pdb
